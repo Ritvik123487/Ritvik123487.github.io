@@ -14,6 +14,13 @@
   border: 6px solid rgba(0, 77, 64, 0.4); 
   border-radius: 50% !important;
 }
+.teal {
+  background-color: #1e3a5f !important;
+}
+
+.teal-text {
+  color: #1e3a5f !important;
+}
 
 .profile-pic img {
   width: 100%;
