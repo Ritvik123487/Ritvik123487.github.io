@@ -698,4 +698,41 @@ small {
   #intro.section {
     background-position-x: 30%;
   }
+
+  /* Dark Mode Enhancement */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.dark-mode section {
+  background-color: #121212;
+}
+
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode .card-content {
+  color: #f5f5f5;
+}
+
+body.dark-mode .card p,
+body.dark-mode .card li {
+  color: #f5f5f5;
+}
+
+body.dark-mode .side-nav {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .side-nav a {
+  color: #f5f5f5 !important;
+}
+
+body.dark-mode .brown-text {
+  color: #dddddd !important;
+}
 }
