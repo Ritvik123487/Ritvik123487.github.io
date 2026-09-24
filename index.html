@@ -402,77 +402,18 @@
   <h3 class="page-title white-text teal">Projects</h3>
 
   <div class="container">
-    <div class="row">
 
-      <!-- Project 1: Sokoban AI Solver -->
-      <div class="col s12 m6 l4">
-        <div class="card medium">
-          <div class="card-content">
-            <span class="card-title teal-text hoverline">
-              Sokoban AI Solver
-            </span>
+    <!-- JavaScript will insert project cards here -->
+    <div id="project-container" class="row"></div>
 
-            <p>
-              An AI-based solver for the Sokoban puzzle using heuristic search algorithms.
-            </p>
-
-            <ul>
-              <li>Implemented A* and Anytime Weighted A* search algorithms.</li>
-              <li>Designed heuristics to efficiently estimate solution costs.</li>
-              <li>Applied search optimization techniques to reduce unnecessary state exploration.</li>
-              <li><b>Tools:</b> Python, A*, Heuristic Search</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Project 2: Reliable UDP File Transfer -->
-      <div class="col s12 m6 l4">
-        <div class="card medium">
-          <div class="card-content">
-            <span class="card-title teal-text hoverline">
-              Reliable UDP File Transfer
-            </span>
-
-            <p>
-              A reliable file-transfer protocol implemented on top of UDP.
-            </p>
-
-            <ul>
-              <li>Implemented reliable data transmission over UDP.</li>
-              <li>Used acknowledgements and retransmissions to handle packet loss.</li>
-              <li>Explored networking concepts including congestion control and transport protocols.</li>
-              <li><b>Tools:</b> Python, UDP, Socket Programming</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- Project 3: Differentially Private X-Ray Images -->
-      <div class="col s12 m6 l4">
-        <div class="card medium">
-          <div class="card-content">
-            <span class="card-title teal-text hoverline">
-              Differentially Private X-Ray Images
-            </span>
-
-            <p>
-              Machine learning research exploring privacy-preserving techniques for medical imaging.
-            </p>
-
-            <ul>
-              <li>Investigated differential privacy techniques for X-ray image data.</li>
-              <li>Developed and evaluated deep learning models for image-based analysis.</li>
-              <li>Explored the trade-off between model performance and data privacy.</li>
-              <li><b>Tools:</b> Python, PyTorch, TensorFlow, Machine Learning</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+    <div class="center-align" style="margin-top: 20px;">
+      <button id="load-more-btn"
+              class="btn waves-effect waves-light teal"
+              onclick="loadMoreProjects()">
+        Load More
+      </button>
     </div>
+
   </div>
 </section>
 <!-- Fifth Section: Skills -->
@@ -673,6 +614,81 @@
       })
     })
   </script>
+
+<script>
+  // Project data
+  const projects = [
+    {
+      title: "Sokoban AI Solver",
+      description: "An AI-based solver for the Sokoban puzzle using heuristic search algorithms.",
+      tools: "Python, A*, Heuristic Search"
+    },
+    {
+      title: "Reliable UDP File Transfer",
+      description: "A reliable file-transfer protocol implemented on top of UDP with acknowledgements and retransmissions.",
+      tools: "Python, UDP, Socket Programming"
+    },
+    {
+      title: "Differentially Private X-Ray Images",
+      description: "Machine learning research exploring privacy-preserving techniques for medical imaging.",
+      tools: "Python, PyTorch, TensorFlow"
+    },
+    {
+      title: "Othello AI",
+      description: "An AI agent for Othello using adversarial search to select optimal moves.",
+      tools: "Python, Minimax, Alpha-Beta Pruning"
+    }
+  ];
+
+  // Initially show two projects
+  let projectsDisplayed = 2;
+
+  function displayProjects() {
+    const container = document.getElementById("project-container");
+
+    // Clear existing projects
+    container.innerHTML = "";
+
+    for (let i = 0; i < projectsDisplayed && i < projects.length; i++) {
+      const project = projects[i];
+
+      container.innerHTML += `
+        <div class="col s12 m6">
+          <div class="card medium">
+            <div class="card-content">
+              <span class="card-title teal-text hoverline">
+                ${project.title}
+              </span>
+
+              <p>${project.description}</p>
+
+              <br>
+
+              <p>
+                <b>Tools:</b> ${project.tools}
+              </p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Hide button once every project is displayed
+    if (projectsDisplayed >= projects.length) {
+      document.getElementById("load-more-btn").style.display = "none";
+    }
+  }
+
+  function loadMoreProjects() {
+    projectsDisplayed = projects.length;
+    displayProjects();
+  }
+
+  // Display the first two projects when the page loads
+  displayProjects();
+</script>
+
+
 </body>
 
 </html>
